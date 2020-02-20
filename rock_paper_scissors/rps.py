@@ -3,7 +3,25 @@
 import sys
 
 def rock_paper_scissors(n):
-  pass 
+  # set list of plays 
+  plays =['rock', 'paper', 'scissors',]
+  #set empty list of all play combinations
+  all_poss =[]
+
+  def roundkeeper( roundsleft, result):
+    # bases case: if turns left == 0 
+    # return the append empty array to all_pos array
+    if roundsleft == 0:
+      all_poss.append(result)
+      return
+
+   #loop through each play 
+    for i in range( 0, len(plays)):
+     # call function decrementing round down and adding plays to result array
+      roundkeeper(roundsleft -1, result + [plays[i]])
+
+  roundkeeper(n, [])
+  return all_poss 
 
 
 if __name__ == "__main__":
